@@ -15,11 +15,11 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install python3-sphinx
+      - name: Sphinx build
+        run: |
           python3 -m venv .venv
           source .venv/bin/activate
           python3 -m pip install sphinx sphinx_rtd_theme myst_parser
-      - name: Sphinx build
-        run: |
           sphinx-build doc _build
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
